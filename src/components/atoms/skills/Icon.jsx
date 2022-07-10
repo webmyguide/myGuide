@@ -7,11 +7,20 @@ import { css, jsx } from '@emotion/react';
 
 const Icon = (props) => {
 
-    const className = 'devicon-' + props.val + '-plain colored';
+    const className = 'devicon-' + props.val.name + '-plain colored';
 
     return (
-        <i className={className}></i>
+        <div css={styles.ico}>
+            <i className={className}></i>
+        </div>
     );
 };
+
+
+const styles = {
+    ico: css`
+        font-size: 44px;
+    `,
+}
 
 export default Icon;

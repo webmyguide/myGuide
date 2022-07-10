@@ -17,7 +17,7 @@ export const list = [
         title: '新ポートフォリオ',
         skills: ['HTML','CSS','JavaScript','React'],
         url: '',
-        github: 'https://kazokubiyori.jp/',
+        github: 'https://github.com/webmyguide/myGuide',
         img: {
             src: portfolio,
             width: 640,

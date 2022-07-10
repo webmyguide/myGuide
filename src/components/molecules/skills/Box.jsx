@@ -4,33 +4,59 @@ import React from 'react';
 //components
 import Title from "../../atoms/common/TitleH3";
 import Icon from "../../atoms/skills/Icon";
+import TextIcon from "../../atoms/skills/TextIcon";
 import Flow from "../../atoms/skills/Flow";
+
+
 //css
 import { css, jsx } from '@emotion/react';
-import { breakPoint } from "../../../styles/constans";
+import { breakPoint, color } from "../../../styles/constans";
 
 
 const Box = (props) => {
     const list = (props.isIcon)? props.val.skills: props.val.details;
 
+    const ico = (val) => {
+        if(props.isIcon) {
+            return (val.text)? (<TextIcon val={val}></TextIcon>):(<Icon val={val}></Icon>);
+        }else {
+            return (<Flow val={val}></Flow>);
+        }
+    };
+
     return (
         <article>
             <Title title={props.val.title}></Title>
-            <ul css={props.isIcon? styles.skills : styles.workflow}>
+            <div>
+                <ul css={props.isIcon? styles.skills : styles.workflow}>
+                    {
+                        list.map( (val,index) => {
+                            return (
+                                <li key={val.id}>
+                                    {ico(val)}
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
                 {
-                    list.map( (val,index) => {
-                        return (
-                            <li key={index}>
+                    props.isIcon &&
+                        (
+                            <dl css={styles.dl}>
                                 {
-                                    (props.isIcon)?
-                                    <Icon val={val}></Icon>:
-                                    <Flow val={val}></Flow>
+                                    list.map( (val,index) => {
+                                        return (
+                                            <>
+                                                <dt>{val.name}</dt>
+                                                <dd>{val.description}</dd>
+                                            </>
+                                        );
+                                    })
                                 }
-                            </li>
-                        );
-                    })
+                            </dl>
+                        )
                 }
-            </ul>
+            </div>
         </article>
     );
 };
@@ -60,6 +86,21 @@ const styles = {
             }
         }
 
+    `,
+
+    dl: css`
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 14px;
+
+        dt {
+            width: 28%;
+            color: ${color.primary[600]}
+        }
+
+        dd {
+            width: 72%;
+        }
     `,
 }
 

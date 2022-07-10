@@ -9,7 +9,7 @@ import { breakPoint,color } from "../../../styles/constans";
 const Flow = (props) => {
     return (
         <>
-            {props.val}
+            {props.val.description}
         </>
     );
 };
