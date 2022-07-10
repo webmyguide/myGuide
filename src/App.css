@@ -1,0 +1,12 @@
+
+
+    .nav-header__bg--nav {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #091d1d;
+        z-index: 10;
+        opacity: 0.3;
+    }
