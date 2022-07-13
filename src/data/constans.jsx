@@ -20,3 +20,5 @@ export const contentList = [
         name: 'Experience',
     },
 ];
+
+export const info = '【β版】UI調整とバグ取り中';
