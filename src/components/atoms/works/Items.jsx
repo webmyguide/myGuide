@@ -6,17 +6,22 @@ import { css, jsx } from '@emotion/react';
 import { breakPoint,color } from "../../../styles/constans";
 //icomoon-react
 import iconSet from "../../../font/selection.json";
-import IcomoonReact, { iconList } from "icomoon-react";
+import IcomoonReact from "icomoon-react";
 
 const Items = (props) => {
-
+    console.log(props);
     //画像の指定
     const figure = (
         <figure css={styles.figure}>
             {
                 (props.val.url)?
-                <a href={props.val.url} target="_blank" rel="noopener noreferrer"><img src={props.val.img.src} width={props.val.img.width} height={props.val.img.height} /></a>:
-                <img src={props.val.img.src} width={props.val.img.width} height={props.val.img.height} />
+                        (
+                            <a href={props.val.url} target="_blank" rel="noopener noreferrer">
+                                <img src={props.val.img.src} alt={props.val.title} width={props.val.img.width} height={props.val.img.height} />
+                            </a>
+                        )
+                    :
+                        <img src={props.val.img.src} alt={props.val.title} width={props.val.img.width} height={props.val.img.height} />
             }
         </figure>
     );

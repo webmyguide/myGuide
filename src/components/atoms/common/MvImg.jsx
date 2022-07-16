@@ -6,9 +6,6 @@ import { css, jsx } from '@emotion/react';
 import { breakPoint } from "../../../styles/constans";
 //img
 import {mv} from '../../../images/GlobalImg';
-import IcoMv from '../../../images/ico_mv_01.svg';
-
-
 
 const MvImg = (props) => {
     return (

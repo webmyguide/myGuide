@@ -1,9 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from 'react';
 //css
-import { css, keyframes, jsx } from '@emotion/react';
-import { breakPoint,maxWidth } from "./constans";
+import { keyframes } from '@emotion/react';
 
 
 export const fideIn = {

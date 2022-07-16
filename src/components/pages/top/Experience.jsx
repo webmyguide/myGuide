@@ -6,7 +6,7 @@ import Title from "../../atoms/common/TitleH2";
 import Box from "../../atoms/experience/Box";
 //css
 import { css, jsx } from '@emotion/react';
-import { breakPoint, color } from "../../../styles/constans";
+import { color } from "../../../styles/constans";
 import { section } from "../../../styles/section";
 //data
 import { list } from "../../../data/experience";

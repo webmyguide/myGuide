@@ -2,13 +2,12 @@
 /** @jsx jsx */
 import React from 'react';
 //components
-import Logo from "../../atoms/common/Logo";
 import ThankYou from "../../atoms/common/ThankYou";
 
 
 //css
 import { css, jsx } from '@emotion/react';
-import { breakPoint,maxWidth,color } from "../../../styles/constans";
+import { maxWidth,color } from "../../../styles/constans";
 
 
 const Footer = (props) => {

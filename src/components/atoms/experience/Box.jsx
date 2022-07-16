@@ -4,8 +4,7 @@ import React from 'react';
 //components
 import Title from "../common/TitleH3";
 //css
-import { css, jsx } from '@emotion/react';
-import { breakPoint } from "../../../styles/constans";
+import { jsx } from '@emotion/react';
 import { section } from "../../../styles/section";
 
 

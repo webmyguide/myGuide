@@ -2,11 +2,8 @@
 /** @jsx jsx */
 import React, {useRef, useState, useEffect} from 'react';
 //components
-import Title from "../../atoms/common/TitleH3";
 import Icon from "../../atoms/skills/Icon";
 import TextIcon from "../../atoms/skills/TextIcon";
-import Flow from "../../atoms/skills/Flow";
-import SkillDetail from "../../atoms/skills/SkillDetail";
 //css
 import { css, jsx } from '@emotion/react';
 import { breakPoint, color } from "../../../styles/constans";

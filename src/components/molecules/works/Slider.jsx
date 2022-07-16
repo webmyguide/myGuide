@@ -1,17 +1,15 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React,{useRef, useState, useMemo, useEffect, useLayoutEffect} from 'react';
+import React,{useRef, useState, useMemo, useEffect} from 'react';
 //components
 import Items from "../../atoms/works/Items";
 //css
 import { css, jsx } from '@emotion/react';
 import { breakPoint,color } from "../../../styles/constans";
 //Helpers
-import { windowSize,getBreakPoint,replaceNumber  } from "../../../js/Helpers";
+import { windowSize,replaceNumber  } from "../../../js/Helpers";
 
 const Slider = (props) => {
-
-    // console.log('sizeInner: ' + props.size.width);
 
     //定数の宣言
     const CLONE_COUNT = 0;
@@ -19,27 +17,24 @@ const Slider = (props) => {
     const SET_TIME = 600;
     const COLUMN_PC = 3;
     const COLUMN_TB = 2;
-    const COLUMN_SP = 1;
     const MARGIN = 60;
 
+    //int
+    const stateList = props.list;//データリスト
 
     //useRef
     const slider = useRef(null);
     const panel = useRef(null);
-    const items = useRef(null);
+    // const items = useRef(null);
     const navigation = useRef(null);
 
     //useState　初期
-    const [stateWindowWidth,setWindowWidth] = useState(windowSize());//windowSize
     const [stateDoubleClick,setDoubleClick] = useState(false);//二重クリック防止用のフラグ
     const [stateViewSize,setViewSize] = useState({width:'',height:''});//viewのサイズ
     const [statePanelSize,setPanelSize] = useState({width:'',height:''});//ulのサイズ
     const [stateItemsSize,setItemsSize] = useState({width:'',height:'',margin:MARGIN});//liのサイズ
-    const [stateItemsLength,setItemsLength] = useState(LIST_LENGTH);//liの数
     const [stateItemsCurrentIndex,setItemsCurrentIndex] = useState(1);//現在の数
     const [stateTranslateX,setTranslateX] = useState(CLONE_COUNT);//X軸の移動距離
-    const [stateList,setList] = useState(props.list);//データリスト
-    const [stateAnimationTime,setAnimationTime] = useState(SET_TIME);//アニメーションスピード
 
 
     useEffect(() => {
@@ -53,15 +48,15 @@ const Slider = (props) => {
         if(stateDoubleClick) return false;
 
         let index = stateItemsCurrentIndex;
-        let lastIndex = stateItemsLength;
+        let lastIndex = LIST_LENGTH;
 
         //デバイス毎に移動距離を分ける
         if(props.breakKye >= 3 ){
             index = index - COLUMN_PC;
-            lastIndex = Math.floor((stateItemsLength/COLUMN_PC))*COLUMN_PC + 1;
+            lastIndex = Math.floor((LIST_LENGTH/COLUMN_PC))*COLUMN_PC + 1;
         }else if ( props.breakKye == 2 ) {
             index = index - COLUMN_TB;
-            lastIndex = Math.floor((stateItemsLength/COLUMN_TB))*COLUMN_TB + 1;
+            lastIndex = Math.floor((LIST_LENGTH/COLUMN_TB))*COLUMN_TB + 1;
         }else if ( props.breakKye == 1 ) {
             index--;
         }
@@ -89,7 +84,7 @@ const Slider = (props) => {
         }
 
         //ラスト以上の場合
-        if( (index) > stateItemsLength) index = CLONE_COUNT + 1;
+        if( (index) > LIST_LENGTH) index = CLONE_COUNT + 1;
 
         setItemsCurrentIndex(index);
     }
@@ -113,7 +108,7 @@ const Slider = (props) => {
         setTimeout( function() {
             //二重処理の防止フラグ 終了
             setDoubleClick(false);
-        }, stateAnimationTime );
+        }, SET_TIME );
 
     }
 
@@ -121,8 +116,6 @@ const Slider = (props) => {
     const changeIndex = useMemo(() => {
         //処理中の場合、何もしない
         if(stateDoubleClick) return false;
-
-        // console.log('changeIndex');
 
         if( (props.breakKye == 3) && (stateItemsCurrentIndex%COLUMN_PC != 1) && (stateItemsCurrentIndex >= COLUMN_PC)){
             setItemsCurrentIndex( stateItemsCurrentIndex - stateItemsCurrentIndex%COLUMN_PC  + 1);
@@ -167,7 +160,7 @@ const Slider = (props) => {
         }
 
         setPanelSize({
-            width: (liWidth + replaceNumber(liStyles.marginLeft) + replaceNumber(liStyles.marginRight))*stateItemsLength
+            width: (liWidth + replaceNumber(liStyles.marginLeft) + replaceNumber(liStyles.marginRight))*LIST_LENGTH
         });
 
         setItemsSize({
@@ -182,7 +175,7 @@ const Slider = (props) => {
 
     return (
         <div css={styles.slider(stateViewSize)} ref={slider}>
-            <ul css={styles.list(statePanelSize,stateTranslateX,stateAnimationTime)} ref={panel}>
+            <ul css={styles.list(statePanelSize,stateTranslateX,SET_TIME)} ref={panel}>
                 {stateList.map((val) => {
                     return (
                         <Items key={(val.clone)? val.clone: val.id} val={val} size={stateItemsSize}></Items>
@@ -190,7 +183,7 @@ const Slider = (props) => {
                 })}
             </ul>
             <div css={styles.navigation} ref={navigation}>
-                {stateItemsCurrentIndex}/{stateItemsLength}
+                {stateItemsCurrentIndex}/{LIST_LENGTH}
                 <div css={styles.btnArea}>
                     <div css={styles.btn(stateDoubleClick)} onClick={handelePrev} data-text="&lt;"></div>
                     <div css={styles.btn(stateDoubleClick)} onClick={handeleNext} data-text="&gt;"></div>

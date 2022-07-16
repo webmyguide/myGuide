@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import React from 'react';
-import { css, jsx } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import Mv from "../common/Mv"

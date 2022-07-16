@@ -6,9 +6,6 @@ import { css, jsx } from '@emotion/react';
 import { breakPoint, color } from "../../../styles/constans";
 
 const TextIcon = (props) => {
-
-    const className = 'devicon-' + props.val.name + '-plain colored';
-
     return (
         <div css={styles.ico(props.size)}>
             <i>{props.val.name}</i>

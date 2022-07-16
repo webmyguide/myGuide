@@ -1,9 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from 'react';
 //css
-import { css, jsx } from '@emotion/react';
-import { breakPoint,maxWidth } from "./constans";
+import { css } from '@emotion/react';
+import { breakPoint } from "./constans";
 
 
 export const section = {

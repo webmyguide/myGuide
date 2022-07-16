@@ -10,9 +10,6 @@ import IcoMv from '../../../images/ico_mv_01.svg';
 
 
 const Logo = (props) => {
-    let title,img;
-
-
     return (
         <h1 css={props.isImg ? styles.footer: styles.header(props.display)}>
             {(props.isImg)? <img src={IcoMv} alt="" css="" />: ''}

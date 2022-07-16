@@ -9,11 +9,10 @@ import Infobar from "../../atoms/common/Infobar";
 //css
 import { css, jsx } from '@emotion/react';
 import { breakPoint } from "../../../styles/constans";
-import { fideIn, fideOut } from "../../../styles/keyframes";
 //data
 import { info } from "../../../data/constans";
 //Helpers
-import { windowSize,getBreakPoint } from "../../../js/Helpers";
+import { getBreakPoint } from "../../../js/Helpers";
 
 
 const Mv = (props) => {
@@ -25,7 +24,6 @@ const Mv = (props) => {
     //useState　初期
     const [stateSize,setSize] = useState(getBreakPoint());//windowサイズの状態
     const [stateHead,setHead] = useState(true);//head部分の状態
-    const [stateLeadPadding,setLeadPadding] = useState(LEAD_PADDING_PC);//head部分のpadding状態
     const [stateLeadPosition,setLeadPosition] = useState(0);//head部分のPosition状態
 
     //リサイズの処理（リサイズ完了後に処理）
@@ -67,7 +65,7 @@ const Mv = (props) => {
     return (
         <section css={styles.mv} id='Top'>
             <div css={styles.inner}>
-                <div css={styles.head(stateHead,LEAD_WIDTH_PC,stateLeadPadding,stateLeadPosition)}>
+                <div css={styles.head(stateHead,LEAD_WIDTH_PC,LEAD_PADDING_PC,stateLeadPosition)}>
                     <MvTitle></MvTitle>
                     <MvScroll></MvScroll>
                 </div>

@@ -2,9 +2,7 @@
 /** @jsx jsx */
 import React from 'react';
 //css
-import { css, jsx } from '@emotion/react';
-import { breakPoint,color } from "../../../styles/constans";
-
+import { jsx } from '@emotion/react';
 
 const Flow = (props) => {
     return (
@@ -13,6 +11,5 @@ const Flow = (props) => {
         </>
     );
 };
-
 
 export default Flow;

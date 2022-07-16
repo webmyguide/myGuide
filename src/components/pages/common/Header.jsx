@@ -12,7 +12,7 @@ import { breakPoint } from "../../../styles/constans";
 //data
 import { contentList } from "../../../data/constans";
 //Helpers
-import { windowSize,getBreakPoint,handleResize } from "../../../js/Helpers";
+import { handleResize } from "../../../js/Helpers";
 
 const Header = (props) => {
     //useState　初期

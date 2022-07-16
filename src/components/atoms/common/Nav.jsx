@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React,{useState, useEffect, useMemo} from 'react';
+import React,{useState, useEffect, useMemo, useCallback} from 'react';
 //react-scroll
 import { Link, animateScroll as scroll } from "react-scroll";
 //css
@@ -49,15 +49,16 @@ const Nav = (props) => {
 
         stateContentPosY.map((val) => {
             if( (val.top <= scrollY) && (val.bottom >= scrollY) ) currentContent = val.name;
+            return currentContent;
         });
 
         setActiveContent(currentContent);
-    }
+    };
 
 
     //stateContentPosYが更新があった場合
     useMemo(() => {
-        handleCurrentContent()
+        handleCurrentContent();
     },[stateContentPosY])
 
 
@@ -73,7 +74,7 @@ const Nav = (props) => {
                     {
                         contentList.map((val) => {
                             return (
-                                <li css={(val.name == stateActiveContent)? styles.item(true,props.stateMenu):styles.item(false,props.stateMenu)} key={val.id}>
+                                <li css={(val.name === stateActiveContent)? styles.item(true,props.stateMenu):styles.item(false,props.stateMenu)} key={val.id}>
                                     <Link to={val.name} smooth={true}>{val.name}</Link>
                                 </li>
                             );

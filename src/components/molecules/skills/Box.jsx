@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React, {useRef, useState, useEffect} from 'react';
+import React from 'react';
 //components
 import Title from "../../atoms/common/TitleH3";
 import Tier from "./Tier";

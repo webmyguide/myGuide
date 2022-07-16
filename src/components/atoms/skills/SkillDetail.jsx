@@ -6,9 +6,6 @@ import { css, jsx } from '@emotion/react';
 import { breakPoint, color } from "../../../styles/constans";
 
 const SkillDetail = (props) => {
-
-    const className = 'devicon-' + props.val.name + '-plain colored';
-
     return (
         <div css={styles.item}>
             <div css={styles.label}>{props.val.name}</div>
