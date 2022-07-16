@@ -71,11 +71,19 @@ const styles = {
     figure: css`
         position: relative;
         width: 100%;
-        height: 194px;
+        height: 52.4vw;
         background: #e6e5e5;
         border-radius: 20px;
         margin-bottom: 20px;
         overflow: hidden;
+
+        @media (min-width: ${breakPoint.s}) {
+            height: 22.8vw;
+        }
+
+        @media (min-width: ${breakPoint.m}) {
+            height: 170px;
+        }
 
         img {
             width: 100%;
