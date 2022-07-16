@@ -9,7 +9,7 @@ import { css, jsx } from '@emotion/react';
 import { breakPoint } from "../../../styles/constans";
 import { section } from "../../../styles/section";
 //data
-import { list } from "../../../data/skills";
+import { skillArticle } from "../../../data/skills";
 
 
 //コンテンツタイトル
@@ -21,15 +21,15 @@ const Skills = (props) => {
         <section css={styles.section} id={titleName}>
             <div css={styles.inner}>
                 <Title title={titleName}></Title>
-                <div css={section.box}>
-                    {
-                        list.map((val) => {
-                            return (
-                                <Box key={val.id} val={val} isIcon={val.skills || false} ></Box>
-                            );
-                        })
-                    }
-                </div>
+
+                {
+                    skillArticle.map((val) => {
+                        return (
+                            <Box key={val.id} article={val}></Box>
+                        );
+                    })
+                }
+
             </div>
         </section>
     );
@@ -41,6 +41,14 @@ const styles = {
     `,
     inner: css`
         ${section.inner}
+
+        article + article {
+            margin-top: 60px;
+
+            @media (min-width: ${breakPoint.s}) {
+                margin-top: 75px;
+            }
+        }
     `,
 }
 

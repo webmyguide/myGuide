@@ -3,23 +3,25 @@
 import React from 'react';
 //css
 import { css, jsx } from '@emotion/react';
-
+import { breakPoint } from "../../../styles/constans";
 
 const Icon = (props) => {
-
-    const className = 'devicon-' + props.val.name + '-plain colored';
-
     return (
-        <div css={styles.ico}>
-            <i className={className}></i>
+        <div css={styles.ico(props.size)}>
+            <i className={props.val.className}></i>
         </div>
     );
 };
 
 
 const styles = {
-    ico: css`
-        font-size: 44px;
+    ico: (size) => css`
+        display: flex;
+        font-size: ${size}px;
+
+        @media (min-width: ${breakPoint.m}) {
+            font-size: 56px;
+        }
     `,
 }
 

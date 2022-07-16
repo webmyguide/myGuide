@@ -2,6 +2,7 @@ import { BREAK_POINT } from "../js/Helpers";
 
 export const breakPoint = {
     s: BREAK_POINT.s + 'px',
+    sm: BREAK_POINT.sm + 'px',
     m: BREAK_POINT.m + 'px',
     l: BREAK_POINT.l + 'px',
 }

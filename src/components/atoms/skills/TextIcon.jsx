@@ -3,31 +3,36 @@
 import React from 'react';
 //css
 import { css, jsx } from '@emotion/react';
-import { color } from "../../../styles/constans";
+import { breakPoint, color } from "../../../styles/constans";
 
 const TextIcon = (props) => {
 
     const className = 'devicon-' + props.val.name + '-plain colored';
 
     return (
-        <div css={styles.ico}>
-            <i>{props.val.text}</i>
+        <div css={styles.ico(props.size)}>
+            <i>{props.val.name}</i>
         </div>
     );
 };
 
 
 const styles = {
-    ico: css`
+    ico: (size) => css`
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 44px;
-        height: 44px;
-        background: ${color.primary[300]};
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color.secondary[300]};
         font-size: 10px;
         color: ${color.white};
 
+        @media (min-width: ${breakPoint.m}) {
+            width: 56px;
+            height: 56px;
+            font-size: 12px;
+        }
     `,
 }
 

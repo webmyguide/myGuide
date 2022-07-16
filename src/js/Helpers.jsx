@@ -1,5 +1,6 @@
 export const BREAK_POINT = {
     s: 600,
+    sm: 780,
     m: 1025,
     l: 1200,
 }
