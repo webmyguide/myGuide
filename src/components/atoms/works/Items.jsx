@@ -9,7 +9,6 @@ import iconSet from "../../../font/selection.json";
 import IcomoonReact from "icomoon-react";
 
 const Items = (props) => {
-    console.log(props);
     //画像の指定
     const figure = (
         <figure css={styles.figure}>
