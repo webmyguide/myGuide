@@ -66,11 +66,11 @@ const Mv = (props) => {
         <section css={styles.mv} id='Top'>
             <div css={styles.inner}>
                 <div css={styles.head(stateHead,LEAD_WIDTH_PC,LEAD_PADDING_PC,stateLeadPosition)}>
+                    {info && <Infobar text={info}></Infobar>}
                     <MvTitle></MvTitle>
                     <MvScroll></MvScroll>
                 </div>
                 <MvImg leadSize={LEAD_WIDTH_PC}></MvImg>
-                {info && <Infobar text={info}></Infobar>}
             </div>
         </section>
     );
@@ -82,7 +82,7 @@ const styles = {
     `,
     inner: css`
         width: 100%;
-        padding: 18vh 0 0 30px;
+        padding: 18vh 30px 0 30px;
 
         @media (min-width: ${breakPoint.s}) {
             display: flex;
@@ -95,13 +95,15 @@ const styles = {
         }
     `,
     head: (stateHead,widthPc,padding,position) => css`
+        padding-right: 30px;
+
         @media (min-width: ${breakPoint.s}) {
             width: 63vw;
             height: 100vh;
             display: flex;
             flex-direction: column;
             margin: 0 0 0 calc(50% - 50vw);
-            padding: 40vh 0 0 calc(50vw - 50%);
+            padding: 40vh 30px 0 calc(50vw - 50%);
         }
 
         @media (min-width: ${breakPoint.m}) {
@@ -113,7 +115,7 @@ const styles = {
             transform: translateX(calc(-8px - 452px));
             width: ${widthPc}px;
             height: 100vh;
-            padding: ${padding}px 0 0;
+            padding: ${padding}px 50px 0 0;
         }
     `,
 }

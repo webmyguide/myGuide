@@ -23,7 +23,7 @@ const styles = {
         top: 0;
         width: 100%;
         height: auto;
-        font-size: 8.6vw;
+        font-size: 8.2vw;
         font-weight: 600;
         letter-spacing: 0.6vw;
         line-height: 1.45;
