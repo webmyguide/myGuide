@@ -5,10 +5,13 @@ import React,{useState, useLayoutEffect} from 'react';
 import MvTitle from "../../atoms/common/MvTitle";
 import MvScroll from "../../atoms/common/MvScroll";
 import MvImg from "../../atoms/common/MvImg";
+import Infobar from "../../atoms/common/Infobar";
 //css
 import { css, jsx } from '@emotion/react';
 import { breakPoint } from "../../../styles/constans";
 import { fideIn, fideOut } from "../../../styles/keyframes";
+//data
+import { info } from "../../../data/constans";
 //Helpers
 import { windowSize,getBreakPoint } from "../../../js/Helpers";
 
@@ -69,6 +72,7 @@ const Mv = (props) => {
                     <MvScroll></MvScroll>
                 </div>
                 <MvImg leadSize={LEAD_WIDTH_PC}></MvImg>
+                {info && <Infobar text={info}></Infobar>}
             </div>
         </section>
     );
@@ -112,7 +116,6 @@ const styles = {
             width: ${widthPc}px;
             height: 100vh;
             padding: ${padding}px 0 0;
-
         }
     `,
 }

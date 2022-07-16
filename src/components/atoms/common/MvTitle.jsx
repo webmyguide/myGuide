@@ -37,6 +37,7 @@ const styles = {
         @media (min-width: ${breakPoint.m}) {
             width: 100%;
             font-size: 32px;
+            letter-spacing: 8px;
         }
     `,
     text: css`
