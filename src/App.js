@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from 'react';
+import React,{useLayoutEffect} from 'react';
 //components
 import Top from './components/pages/top/Index'
 import logo from './logo.svg';
@@ -11,12 +11,19 @@ import './App.css';
 import './styles/destyle.css'
 
 function App() {
-  return (
-    <>
-        <Global styles={global}/>
-        <Top></Top>
-    </>
-  );
+
+    //headの変更
+    useLayoutEffect(() => {
+        document.title = 'Murakami Yu-ki portfolio site';
+        document.querySelector('meta[name="description"]').setAttribute("content", "ポートフォリオサイトサイトです。react.jsで作成しています。");
+      }, []);
+
+    return (
+        <>
+            <Global styles={global}/>
+            <Top></Top>
+        </>
+    );
 }
 
 const global = css`
